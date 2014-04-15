@@ -50,6 +50,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button mBtnSendDanmaku;
 
+    private long mPausedPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,8 +157,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             return;
         if (v == mBtnHideDanmaku) {
             mDanmakuView.hide();
+            //mPausedPosition = mDanmakuView.hideAndPauseDrawTask();
         } else if (v == mBtnShowDanmaku) {
-            mDanmakuView.show(); // sync to the video time in your practice
+            mDanmakuView.show(); 
+            //mDanmakuView.showAndResumeDrawTask(mPausedPosition); // sync to the video time in your practice
         } else if (v == mBtnPauseDanmaku) {
             mDanmakuView.pause();
         } else if (v == mBtnResumeDanmaku) {
